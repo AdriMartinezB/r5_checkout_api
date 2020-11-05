@@ -1,0 +1,62 @@
+version: 2.1
+
+executors:
+    docker-node-12:
+        docker:
+            - image: circleci/node:12.19
+
+orbs:
+    heroku: circleci/heroku@1.2.2
+#    node: circleci/node@4.1.0
+
+parameters:
+    app-name:
+        type: string
+        default: $HEROKU_APP_NAME
+    api-key:
+        type: string
+        default: $HEROKU_API_KEY
+
+jobs:
+    test:
+        executor: docker-node-12
+        steps:
+            - checkout
+            - run:
+                name: install project
+                command: npm install
+            - run:
+                name: running-tests
+                command: npm run test 
+    deploy:
+        executor: heroku/default
+        environment:
+            HEROKU_APP_NAME = app-name
+            HEROKU_API_KEY = api-key
+        steps:
+            - checkout
+            - heroku/install
+#            - run:
+#               name: nombre del proyecto
+#                command: heroku apps:create $HEROKU_APP_NAME
+            - run:
+                name: Deploy heroku
+                command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master -f
+
+#            - heroku/deploy-via-git
+
+workflows:
+    test-and-deploy:
+        jobs:
+            - test
+            - verify-deploy:
+                type: approval
+                requires:
+                    - test
+            - deploy:
+                requires:
+                    - verify-deploy
+                filters:
+                    branches:
+                        only:
+                            - master
