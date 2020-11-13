@@ -1,12 +1,13 @@
 const express = require('express')
 const config = require('./config')
 
-const router = require('./routes/routes')
-const db = require('./db')
+const router = require('./routes/router')
+const {connect} = require('./db/db')
 
 const app = express()
 
-db(config.mongoUri)
+//db(config.mongoUri)
+connect()
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
@@ -18,7 +19,8 @@ app.use((_, res, next) =>{
     next()
 })
 
-app.use('/api/test', router)
+router(app)
+//app.use('/api/test', router)
 
 app.listen(config.port, function(){
     console.log(`app listen http://localhost:${config.port}`)
