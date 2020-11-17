@@ -7,6 +7,10 @@ const MarketCarts = sequelize.define('marketCart',
         type: DataTypes.STRING,
         allowNull: false,
     },
+    PhoneNumber: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+    },
     ProductName1: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -43,6 +47,10 @@ const MarketCarts = sequelize.define('marketCart',
         type: DataTypes.INTEGER,
         allowNull: true,
     },
+    Total: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    }
 })
 
 module.exports = MarketCarts

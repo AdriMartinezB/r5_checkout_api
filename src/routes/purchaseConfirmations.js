@@ -1,14 +1,13 @@
 const express = require('express')
-const {created, listar} = require('../controllers/creditCards')
+const {created, listar} = require('../controllers/purchaseConfirmations')
 
 
 const router = express.Router()
 
-router.get('/:DocumentNumber', async function(req,res) {
+router.get('/', async function(req,res) {
     try{
-        const {DocumentNumber}= req.params
-        const response = await listar({DocumentNumber})
-        res.status(200).json(response)
+        //const response = await listar()
+        res.status(200).json({response: 'In progress'})
     }catch(e){
         res.status(500).json({error: 'Internal server error', e})
     }
@@ -17,8 +16,8 @@ router.get('/:DocumentNumber', async function(req,res) {
 router.post('/', async function(req,res) {
     try{
         const data = req.body
-        const response = await created(data)
-        res.status(201).json(response)
+        //const response = await created(data)
+        res.status(201).json({response: 'In progress'})
     }catch(e){
         res.status(500).json({error: 'Internal server error'})
     }

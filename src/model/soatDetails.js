@@ -17,7 +17,7 @@ const SoatDetails = sequelize.define('soatDetail',{
         length: 2
     },
     DocumentNumber:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
     },
     ValidityStartDate:{

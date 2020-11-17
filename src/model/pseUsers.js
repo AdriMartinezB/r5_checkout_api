@@ -16,7 +16,7 @@ const PseUsers = sequelize.define('pseUser',
         allowNull: false,
     },
     DocumentNumber: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
     }
 })

@@ -2,12 +2,10 @@ const Model = require('../model/creditCards')
 
 async function created(data) {
     try{
-        const ValidityStartDate = new Date(data.ValidityStartDate)
-        const ValidityEndDate = new Date(data.ValidityEndDate)
-        const newData = {...data, ValidityEndDate, ValidityStartDate}
+        const ExpirationDate = new Date(data.ExpirationDate)
+        const newData = {...data, ExpirationDate}
         const response = await Model.create(newData)
-        console.log({message:'data created'})
-        return {message:'data created', response}
+        return response,{message:'data created'}
     }catch(e){ 
         return  {message:'error al crear la data', e}
     }
@@ -16,9 +14,20 @@ async function created(data) {
 
 async function listar(params) {
     try{
-        const data = await Model.findOne({where: params})
-        //const info = data.map(data=> data.dataValues)
-        return data.dataValues
+        const data = await Model.findAll({where: params})
+        const info = data.map(data=> {
+            let cardNumber= new String(data.CardNumber.slice(12,16))
+            const details = {
+                OwnerName: data.OwnerName,
+                DocumentType: data.DocumentType,
+                DocumentNumber: data.DocumentNumber,
+                CardType: data.CardType,
+                CardNumber: parseInt(cardNumber)
+            }
+            return details
+        })
+        console.log(info)
+        return info
     }catch(e){ 
         return  {message:'error obtener la data', e}
     }

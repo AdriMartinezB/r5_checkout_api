@@ -24,7 +24,20 @@ async function listar(params) {
     }
 }
 
+async function updated(data, params) {
+    try{
+        console.log(data, params)
+        const info = await Model.update(data,{where: params})
+        //const info = data.map(data=> data.dataValues)
+        return info.dataValues
+    }catch(e){ 
+        return  {message:'error al actualizar la data', e}
+    }
+}
+
+
 module.exports = {
     created,
-    listar
+    listar,
+    updated
 }

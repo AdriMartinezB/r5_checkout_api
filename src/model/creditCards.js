@@ -1,7 +1,7 @@
 const { DataTypes} = require('sequelize')
 const { sequelize} = require('../db/db')
 
-const CreditCards = sequelize.define('creditcard',
+const CreditCards = sequelize.define('creditCard',
 {
     OwnerName: {
         type: DataTypes.STRING,
@@ -12,11 +12,11 @@ const CreditCards = sequelize.define('creditcard',
         allowNull: false,
     },
     DocumentNumber:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
     },
     CardNumber:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
     },
     CardType:{
@@ -28,7 +28,7 @@ const CreditCards = sequelize.define('creditcard',
         allowNull: false,
     },
     Cvv:{
-        type: DataTypes.INTEGER(3),
+        type: DataTypes.INTEGER,
         allowNull: false,
     }
 })

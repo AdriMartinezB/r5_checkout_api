@@ -4,3 +4,4 @@ package-lock.json
 zRespuestaApiPlaca.txt
 zInfo.json
 ZProbeDBpg
+src/model/model.mongose.js

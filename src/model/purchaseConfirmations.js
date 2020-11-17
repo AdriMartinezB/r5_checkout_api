@@ -52,7 +52,7 @@ const PurchaseConfirmations = sequelize.define('purchaseConfirmation',
         allowNull: false,
     },
     PhoneNumber:{
-        type: DataTypes.INTEGER(10),
+        type: DataTypes.BIGINT,
         allowNull: false,
     },
     DiscountCode1: {
@@ -63,6 +63,10 @@ const PurchaseConfirmations = sequelize.define('purchaseConfirmation',
         type: DataTypes.STRING,
         allowNull: true,
     },
+    Bucher: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    }
 })
 
 module.exports = PurchaseConfirmations
