@@ -15,9 +15,14 @@ router.get('/', async function(req,res) {
 
 router.post('/', async function(req,res) {
     try{
-        const data = req.body
-        //const response = await created(data)
-        res.status(201).json({response: 'In progress'})
+        const Generate = req.headers.generate
+        if(Generate==='true'){
+            const response = await created()
+            res.status(201).json({respons: 'test'})
+        } else{
+            res.status(204).json({message: 'word of verification is missing'})
+        }
+        
     }catch(e){
         res.status(500).json({error: 'Internal server error'})
     }

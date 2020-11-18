@@ -62,10 +62,6 @@ const PurchaseConfirmations = sequelize.define('purchaseConfirmation',
     DiscountCode2: {
         type: DataTypes.STRING,
         allowNull: true,
-    },
-    Bucher: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
     }
 })
 
