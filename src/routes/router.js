@@ -5,6 +5,8 @@ const marketCarts = require('./marketCarts')
 const pseUsers = require('./pseUsers')
 const services = require('./services')
 const purchaseConfirmations = require('./purchaseConfirmations')
+const soatPrices = require('./soatPrices')
+const ups = require('./ups')
 
 
 const router = function (server) {
@@ -15,6 +17,8 @@ const router = function (server) {
     server.use('/api/pseUsers', pseUsers)
     server.use('/api/services', services)
     server.use('/api/purchaseConfirmations', purchaseConfirmations)
+    server.use('/api/soatPrices', soatPrices)
+    server.use('/api/ups', ups)
 }
 
 module.exports = router
