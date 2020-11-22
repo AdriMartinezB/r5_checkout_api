@@ -2,6 +2,7 @@ const Model = require('../model/purchaseConfirmations')
 
 async function created(data) {
     try{
+        const response = 'in progres'
         //const response = await Model.create(data)
         //await Model.destroy({where: {id : 11}})
         return response, {message:'data created'}
