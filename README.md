@@ -1,16 +1,20 @@
-# GrupoR5
-
+## GrupoR5
+``` sh
 Back del checkout Grupo R5
+```
 
-# Instalar dependencias
-
+## Instalar dependencias
+```
 npm install
+```
 
-# Llenar variables de entorno
-
+## Completar variables de entorno
+```
 .env.example cambiar a .env y completar los valores
+```
 
-# Probar en local
-
+## Probar en local
+```  js
 npm run dev      // desarrollo
 npm run start    //produccion
+```
