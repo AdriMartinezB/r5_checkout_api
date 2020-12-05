@@ -67,6 +67,10 @@ const SoatDetails = sequelize.define('soatDetail',{
     SoatDiscount:{
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    PriceSoat:{
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 })
 
