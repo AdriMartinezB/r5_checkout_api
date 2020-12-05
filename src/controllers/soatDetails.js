@@ -1,4 +1,5 @@
 const Model = require('../model/soatDetails')
+const ModelPrice = require('../model/soatPrices')
 
 async function created(data) {
     try{
@@ -17,8 +18,12 @@ async function created(data) {
 async function listar(params) {
     try{
         const data = await Model.findOne({where: params})
+        const code = data.dataValues.PriceSoat
+        const dataPrice = await ModelPrice.findOne({where: {code}})
+        const price = dataPrice.dataValues.price
+        const response = { ...data.dataValues, PriceSoat:price}
         //const info = data.map(data=> data.dataValues)
-        return data.dataValues
+        return response
     }catch(e){ 
         return  {message:'error obtener la data', e}
     }
