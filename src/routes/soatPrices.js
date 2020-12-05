@@ -4,9 +4,10 @@ const {created, listar} = require('../controllers/soatPrices')
 
 const router = express.Router()
 
-router.get('/', async function(req,res) {
+router.get('/:code', async function(req,res) {
     try{
-        const response = await listar()
+        const {code}= req.params
+        const response = await listar({code})
         res.status(200).json(response)
     }catch(e){
         res.status(500).json({error: 'Internal server error', e})

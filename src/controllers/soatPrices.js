@@ -11,11 +11,11 @@ async function created(data) {
 
 }
 
-async function listar() {
+async function listar(params) {
     try{
-        const data = await Model.findAll()
-        const info = data.map(data=> data.dataValues)
-        return info
+        const data = await Model.findOne({where: params})
+        //const info = data.map(data=> data.dataValues)
+        return {price : data.dataValues.price}
     }catch(e){ 
         return  {message:'error obtener la data', e}
     }
