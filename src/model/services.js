@@ -10,6 +10,14 @@ const Services = sequelize.define('service',
     Price: {
         type: DataTypes.INTEGER,
         allowNull: false,
+    },
+    Description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    Image: {
+        type: DataTypes.STRING,
+        allowNull: false,
     }
 })
 

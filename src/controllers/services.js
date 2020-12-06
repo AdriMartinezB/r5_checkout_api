@@ -21,8 +21,6 @@ async function listar() {
     }
 }
 
-
-
 module.exports = {
     created,
     listar,
