@@ -27,6 +27,10 @@ const Discounts = sequelize.define('discount',
         type: DataTypes.STRING,
         allowNull: false,
     },
+    ProductName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
 })
 
 module.exports = Discounts

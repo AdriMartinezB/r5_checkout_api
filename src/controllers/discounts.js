@@ -1,6 +1,5 @@
 const Model = require('../model/discounts')
 const {listar, updated} = require('../controllers/soatDetails')
-const ModelPrice = require('../model/soatPrices')
 
 async function created(data) {
     try{
@@ -26,7 +25,8 @@ async function created(data) {
             Discount,
             PriceTotal,
             PriceDiscount,
-            RegistrationNumber: data.RegistrationNumber
+            RegistrationNumber: data.RegistrationNumber,
+            ProductName: 'SOAT'
         }
         const response = await Model.create(eData)
         return response 
