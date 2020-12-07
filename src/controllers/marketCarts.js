@@ -26,7 +26,8 @@ async function created(data) {
             Discount2: data.Discount2 || 0,
             ProductName3: data.ProductName3 || '',
             Price3: data.Price3 || 0,
-            Discount3: data.Discount3 || 0
+            Discount3: data.Discount3 || 0,
+            message: 'Ok'
         }
         const Total = parseInt((data.Price1-eData.Discount1)+(eData.Price2-eData.Discount2)+(eData.Price3-eData.Discount3))
         const newData= {

@@ -50,6 +50,10 @@ const MarketCarts = sequelize.define('marketCart',
     Total: {
         type: DataTypes.INTEGER,
         allowNull: false,
+    },
+    message: {
+        type: DataTypes.STRING,
+        allowNull: false,
     }
 })
 
