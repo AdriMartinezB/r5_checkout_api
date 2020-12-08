@@ -7,7 +7,7 @@ const services = require('./services')
 const purchaseConfirmations = require('./purchaseConfirmations')
 const soatPrices = require('./soatPrices')
 const ups = require('./ups')
-const discounts = require('./discounts')
+const dbclients = require('./dbclients')
 
 
 const router = function (server) {
@@ -20,7 +20,7 @@ const router = function (server) {
     server.use('/api/purchaseConfirmations', purchaseConfirmations)
     server.use('/api/soatPrices', soatPrices)
     server.use('/api/ups', ups)
-    server.use('/api/discounts', discounts)
+    server.use('/api/dbclients', dbclients)
 }
 
 module.exports = router

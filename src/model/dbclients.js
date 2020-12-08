@@ -1,7 +1,7 @@
 const { DataTypes} = require('sequelize')
 const { sequelize} = require('../db/db')
 
-const Discounts = sequelize.define('discount',
+const DBclients = sequelize.define('DBclient',
 {
     Email: {
         type: DataTypes.STRING,
@@ -33,4 +33,4 @@ const Discounts = sequelize.define('discount',
     }
 })
 
-module.exports = Discounts
+module.exports = DBclients

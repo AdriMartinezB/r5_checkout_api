@@ -1,5 +1,5 @@
-const Model = require('../model/discounts')
-const {listar, updated} = require('../controllers/soatDetails')
+const Model = require('../model/dbclients')
+const {listar, updated} = require('./soatDetails')
 
 async function created(data) {
     try{

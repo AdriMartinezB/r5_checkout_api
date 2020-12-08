@@ -1,5 +1,5 @@
 const express = require('express')
-const {created, list} = require('../controllers/discounts')
+const {created, list} = require('../controllers/dbclients')
 
 
 const router = express.Router()
