@@ -1,5 +1,5 @@
 const express = require('express')
-const {created, list} = require('../controllers/marketCarts')
+const {created, list, update} = require('../controllers/marketCarts')
 
 
 const router = express.Router()
@@ -18,6 +18,17 @@ router.post('/', async function(req,res) {
     try{
         const data = req.body
         const response = await created(data)
+        res.status(201).json(response)
+    }catch(e){
+        res.status(500).json({error: 'Internal server error'})
+    }
+})
+
+router.put('/', async function(req,res) {
+    try{
+        const data = req.body
+        const {phonenumber : PhoneNumber ,email: Email}= req.headers
+        const response = await update(data, {PhoneNumber, Email} )
         res.status(201).json(response)
     }catch(e){
         res.status(500).json({error: 'Internal server error'})

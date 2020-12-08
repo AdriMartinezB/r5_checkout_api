@@ -52,7 +52,18 @@ async function list(params) {
     }
 }
 
+async function update(data, params) {
+    try{
+        await Model.update(data,{where: params})
+        //const info = data.map(data=> data.dataValues)
+        return {message: 'data se actualizo con exito'}
+    }catch(e){ 
+        return  {message:'error al actualizar la data', e}
+    }
+}
+
 module.exports = {
     created,
-    list
+    list,
+    update
 }
