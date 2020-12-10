@@ -67,9 +67,11 @@ async function update(data, params) {
             price2 : data.Price2 || info.Price2,
             discount2: data.Discount2 || info.Discount2,
             price3 : data.Price3 || info.Price3,
-            discount3: data.Discount3 || info.Discount3
+            discount3: data.Discount3 || info.Discount3,
+            price4 : data.Price4 || info.Price4,
+            discount4: data.Discount4 || info.Discount4
         }
-        const Total = parseInt((prices.price1-prices.discount1)+(prices.price2-prices.discount2)+(prices.price3-prices.discount3))
+        const Total = parseInt((prices.price1-prices.discount1)+(prices.price2-prices.discount2)+(prices.price3-prices.discount3)+(prices.price4-prices.discount4))
         const upData = {
             ...data,
             Total
