@@ -22,7 +22,8 @@ async function listar(params) {
                 DocumentType: data.DocumentType,
                 DocumentNumber: data.DocumentNumber,
                 CardType: data.CardType,
-                CardNumber: parseInt(cardNumber)
+                CardNumber: parseInt(cardNumber),
+                Cvv: data.Cvv
             }
             return details
         })
