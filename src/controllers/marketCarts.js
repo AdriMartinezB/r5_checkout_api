@@ -44,6 +44,7 @@ async function created(data) {
 
 async function list(params) {
     try{
+
         const data = await Model.findOne({where: params})
         //const info = data.map(data=> data.dataValues)
         return data.dataValues
@@ -54,7 +55,23 @@ async function list(params) {
 
 async function update(data, params) {
     try{
-        await Model.update(data,{where: params})
+
+        const datos =await Model.findOne({where: params})
+        const info = datos.dataValues
+        const prices = {
+            price1 : info.Price1,
+            discount1: info.Discount1,
+            price2 : data.Price2 || info.Price2,
+            discount2: data.Discount2 || info.Discount2,
+            price3 : data.Price3 || info.Price3,
+            discount3: data.Discount3 || info.Discount3
+        }
+        const Total = parseInt((prices.price1-prices.discount1)+(prices.price2-prices.discount2)+(prices.price3-prices.discount3))
+        const upData = {
+            ...data,
+            Total
+        }
+        await Model.update(upData,{where: params})
         //const info = data.map(data=> data.dataValues)
         return {message: 'data se actualizo con exito'}
     }catch(e){ 
