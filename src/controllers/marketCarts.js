@@ -32,7 +32,7 @@ async function created(data) {
             Discount4: data.Discount4 || 0,
             message: 'Ok'
         }
-        const Total = parseInt((data.Price1-eData.Discount1)+(eData.Price2-eData.Discount2)+(eData.Price3-eData.Discount3))
+        const Total = parseInt((data.Price1-eData.Discount1)+(eData.Price2-eData.Discount2)+(eData.Price3-eData.Discount3)+(eData.Price4-eData.Discount4))
         const newData= {
             ...eData,
             Total

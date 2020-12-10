@@ -47,6 +47,18 @@ const MarketCarts = sequelize.define('marketCart',
         type: DataTypes.INTEGER,
         allowNull: true,
     },
+    ProductName4: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    Price4: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    Discount4: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
     Total: {
         type: DataTypes.INTEGER,
         allowNull: false,
